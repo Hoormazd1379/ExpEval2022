@@ -5,8 +5,13 @@ var questions = [
     ejs.views_q3(),
     ejs.views_q4(),
     ejs.views_q5(),
-    ejs.views_q6()
-
+    ejs.views_q6(),
+    ejs.views_q7(),
+    ejs.views_q8(),
+    ejs.views_q9(),
+    ejs.views_q10(),
+    ejs.views_q11(),
+    ejs.views_q12()
 ];
 
 var startTime = Date.now();
@@ -39,7 +44,14 @@ function init() {
 
 function start_questions(username) {
     shuffle(questions);
-    nextQuestion();
+    
+    clearInterval(interval);
+    mainsec.innerHTML = ejs.views_tq1();
+    startTime = Date.now();
+    interval = setInterval(function() {
+        var elapsedTime = Date.now() - startTime;
+        document.getElementById("timer").innerHTML = (elapsedTime / 1000).toFixed(3);
+    }, 100);
 }
 
 function nextQuestion() {
@@ -57,6 +69,10 @@ function nextQuestion() {
         mainsec.innerHTML = "<h2>That's all! Thank you for participating!</h2>"
 
     }
+}
+
+function tans() {
+    nextQuestion();
 }
 
 function ans(choice) {

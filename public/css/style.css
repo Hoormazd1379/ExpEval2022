@@ -2,6 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-size: 20px;
     font-family: 'Courier New', monospace;
 }
 
@@ -11,11 +12,12 @@ body,section.container {
     background: linear-gradient(132deg, rgba(17,17,17,1) 0%, rgba(53,55,60,1) 100%);
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    margin-top: 4px;
 }
 
 div.question {
@@ -35,7 +37,8 @@ div.question form input,button {
     background-color: rgba(53,55,60,1);
     color: aliceblue;
     border-radius: 5px;
-    
+    padding: 5px;
+    margin: 5px;
     width: 100%;
     padding: 10px;
     height: 40px;

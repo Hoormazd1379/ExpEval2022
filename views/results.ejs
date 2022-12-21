@@ -25,7 +25,14 @@
             results.forEach(result => {
                 surveysanswered++;
                 result.answers.forEach(answer => {
-                    if (answer.question == "1" || answer.question == "2" || answer.question == "3") {
+                    if (
+                        answer.question == "1" || 
+                        answer.question == "2" || 
+                        answer.question == "3" ||
+                        answer.question == "10" ||
+                        answer.question == "11" ||
+                        answer.question == "12"
+                        ) {
                         total += 1;
                         var time = +answer.time;
                         camelTime += time;
@@ -39,7 +46,13 @@
                             camelScore -= time/5;
                         }
                     }
-                    if (answer.question == "4" || answer.question == "5" || answer.question == "6") {
+                    if (
+                        answer.question == "4" || 
+                        answer.question == "5" || 
+                        answer.question == "6" ||
+                        answer.question == "7" || 
+                        answer.question == "8" || 
+                        answer.question == "9") {
                         var time = +answer.time;
                         kebab_time += time;
                         var score = 1/time;
