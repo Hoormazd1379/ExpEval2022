@@ -1,10 +1,10 @@
 const mongodb = require('mongodb');
 
 
-const mongodb_uri = 'mongodb://127.0.0.1:27017/';
+// const mongodb_uri = 'mongodb://127.0.0.1:27017/';
 
 
-//const mongodb_uri = 'mongodb+srv://db_user:mF14Cac1Jfvg2wZz@cluster0.x6zd3.mongodb.net/Feedback?retryWrites=true&w=majority';
+const mongodb_uri = 'mongodb+srv://dbExpEval:dbExpEval@clustersocial.xnq4d.gcp.mongodb.net/test';
 
 
 const client = new mongodb.MongoClient(mongodb_uri);
