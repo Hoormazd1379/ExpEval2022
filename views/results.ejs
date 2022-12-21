@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Hoormazd Pirayeshfar">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
+        <title>My First Page</title>
+    </head>
+    <body onload="init();">
+        <section class="container">
+            <% 
+            var camelScore = 0;
+            var camelCount = 0;
+            var camelTime = 0;
+
+            var kebab_score = 0;
+            var kebab_count = 0;
+            var kebab_time = 0;
+            
+            var total = 0;
+            var surveysanswered = 0;
+
+            results.forEach(result => {
+                surveysanswered++;
+                result.answers.forEach(answer => {
+                    if (answer.question == "1" || answer.question == "2" || answer.question == "3") {
+                        total += 1;
+                        var time = +answer.time;
+                        camelTime += time;
+                        var score = 1/time;
+                        if (answer.entered == answer.correct) {
+                            camelScore += score;
+                            camelCount += 1;
+                            
+                        }
+                        else {
+                            camelScore -= time/5;
+                        }
+                    }
+                    if (answer.question == "4" || answer.question == "5" || answer.question == "6") {
+                        var time = +answer.time;
+                        kebab_time += time;
+                        var score = 1/time;
+                        if (answer.entered == answer.correct) {
+                            kebab_score += score;
+                            kebab_count += 1;
+                        }
+                        else {
+                            kebab_score -= time/5;
+                        }
+                    }
+                });
+            }); 
+            var data = [
+                {
+                    x: ['camelCase', 'kebab-case'],
+                    y: [camelScore, kebab_score],
+                    type: 'bar'
+                }
+                ];
+            var count = [
+                {
+                    x: ['camelCase', 'kebab-case'],
+                    y: [camelCount, kebab_count],
+                    type: 'bar'
+                }
+                ];
+            var time = [
+                {
+                    x: ['camelCase', 'kebab-case'],
+                    y: [camelTime/total, kebab_time/total],
+                    type: 'bar'
+                }
+                ];
+            %>
+            <h1>Over all score from <%-surveysanswered%> surveys answered:</h1>
+            <div id="graph1"></div>
+            <br>
+
+            <h1>Correct answer count out of <%- total%> questions:</h1>
+            <div id="graph2"></div>
+            <br>
+
+            <h1>Average answering times (s)</h1>
+            <div id="graph3"></div>
+            <br>
+            <script>
+                Plotly.newPlot('graph1', <%-JSON.stringify(data)%>);
+                Plotly.newPlot('graph2', <%-JSON.stringify(count)%>);
+                Plotly.newPlot('graph3', <%-JSON.stringify(time)%>);
+            </script>
+        </section>
+      </body>
+</html>
