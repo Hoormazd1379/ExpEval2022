@@ -14,6 +14,8 @@ var interval;
 
 var result = {
     name : '',
+    age : '',
+    programmer : '',
     answers : []
 }
 
@@ -25,12 +27,17 @@ function init() {
     document.querySelector('button#username').addEventListener("click", (e)=>{
         e.preventDefault();
         var username = document.querySelector('input#username').value;
+        var age = document.querySelector('input#age').value;
+        var programmer = document.querySelector('input#programmer').value;
+        result.name = username;
+        result.age = age;
+        result.programmer = programmer;
+        
         start_questions(username);
     });
 }
 
 function start_questions(username) {
-    result.name = username;
     shuffle(questions);
     nextQuestion();
 }
