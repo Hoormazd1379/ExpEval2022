@@ -39,3 +39,12 @@ router.get("/results", function(req, res) {
         }
     });
 });
+
+router.get("/results/download", function(req, res) {
+    res.download('model/results.json')
+    // res.format({
+    //     'application/json': function () {
+    //       res.status(201).json(results.data);
+    //     }
+    // });
+});

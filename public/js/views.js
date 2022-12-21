@@ -1,4 +1,4 @@
-//EJS Compiled Views - This file was automatically generated on Wed Dec 21 2022 12:31:56 GMT+0100 (Central European Standard Time)
+//EJS Compiled Views - This file was automatically generated on Wed Dec 21 2022 14:30:45 GMT+0100 (Central European Standard Time)
  ejs.views_include = function(locals) {
      
      return function(path, d) {
@@ -404,14 +404,14 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\"/>\n        <meta name=\"author\" content=\"Hoormazd Pirayeshfar\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>\n        <title>My First Page</title>\n    </head>\n    <body onload=\"init();\">\n        <section class=\"container\">\n            <% \n            var camelScore = 0;\n            var camelCount = 0;\n            var camelTime = 0;\n\n            var kebab_score = 0;\n            var kebab_count = 0;\n            var kebab_time = 0;\n            \n            var total = 0;\n            var surveysanswered = 0;\n\n            results.forEach(result => {\n                surveysanswered++;\n                result.answers.forEach(answer => {\n                    if (answer.question == \"1\" || answer.question == \"2\" || answer.question == \"3\") {\n                        total += 1;\n                        var time = +answer.time;\n                        camelTime += time;\n                        var score = 1/time;\n                        if (answer.entered == answer.correct) {\n                            camelScore += score;\n                            camelCount += 1;\n                            \n                        }\n                        else {\n                            camelScore -= time/5;\n                        }\n                    }\n                    if (answer.question == \"4\" || answer.question == \"5\" || answer.question == \"6\") {\n                        var time = +answer.time;\n                        kebab_time += time;\n                        var score = 1/time;\n                        if (answer.entered == answer.correct) {\n                            kebab_score += score;\n                            kebab_count += 1;\n                        }\n                        else {\n                            kebab_score -= time/5;\n                        }\n                    }\n                });\n            }); \n            var data = [\n                {\n                    x: ['camelCase', 'kebab-case'],\n                    y: [camelScore, kebab_score],\n                    type: 'bar'\n                }\n                ];\n            var count = [\n                {\n                    x: ['camelCase', 'kebab-case'],\n                    y: [camelCount, kebab_count],\n                    type: 'bar'\n                }\n                ];\n            var time = [\n                {\n                    x: ['camelCase', 'kebab-case'],\n                    y: [camelTime/total, kebab_time/total],\n                    type: 'bar'\n                }\n                ];\n            %>\n            <h1>Over all score from <%-surveysanswered%> surveys answered:</h1>\n            <div id=\"graph1\"></div>\n            <br>\n\n            <h1>Correct answer count out of <%- total%> questions:</h1>\n            <div id=\"graph2\"></div>\n            <br>\n\n            <h1>Average answering times (s)</h1>\n            <div id=\"graph3\"></div>\n            <br>\n            <script>\n                Plotly.newPlot('graph1', <%-JSON.stringify(data)%>);\n                Plotly.newPlot('graph2', <%-JSON.stringify(count)%>);\n                Plotly.newPlot('graph3', <%-JSON.stringify(time)%>);\n            </script>\n        </section>\n      </body>\n</html>"
+  , __lines = "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\"/>\n        <meta name=\"author\" content=\"Hoormazd Pirayeshfar\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>\n        <title>My First Page</title>\n    </head>\n    <body onload=\"init();\">\n        <section class=\"container\">\n            <a href=\"/results/download\">Download</a>\n            <% \n            var camelScore = 0;\n            var camelCount = 0;\n            var camelTime = 0;\n\n            var kebab_score = 0;\n            var kebab_count = 0;\n            var kebab_time = 0;\n            \n            var total = 0;\n            var surveysanswered = 0;\n\n            results.forEach(result => {\n                surveysanswered++;\n                result.answers.forEach(answer => {\n                    if (answer.question == \"1\" || answer.question == \"2\" || answer.question == \"3\") {\n                        total += 1;\n                        var time = +answer.time;\n                        camelTime += time;\n                        var score = 1/time;\n                        if (answer.entered == answer.correct) {\n                            camelScore += score;\n                            camelCount += 1;\n                            \n                        }\n                        else {\n                            camelScore -= time/5;\n                        }\n                    }\n                    if (answer.question == \"4\" || answer.question == \"5\" || answer.question == \"6\") {\n                        var time = +answer.time;\n                        kebab_time += time;\n                        var score = 1/time;\n                        if (answer.entered == answer.correct) {\n                            kebab_score += score;\n                            kebab_count += 1;\n                        }\n                        else {\n                            kebab_score -= time/5;\n                        }\n                    }\n                });\n            }); \n            var data = [\n                {\n                    x: ['camelCase', 'kebab-case'],\n                    y: [camelScore, kebab_score],\n                    type: 'bar'\n                }\n                ];\n            var count = [\n                {\n                    x: ['camelCase', 'kebab-case'],\n                    y: [camelCount, kebab_count],\n                    type: 'bar'\n                }\n                ];\n            var time = [\n                {\n                    x: ['camelCase', 'kebab-case'],\n                    y: [camelTime/total, kebab_time/total],\n                    type: 'bar'\n                }\n                ];\n            %>\n            <h1>Over all score from <%-surveysanswered%> surveys answered:</h1>\n            <div id=\"graph1\"></div>\n            <br>\n\n            <h1>Correct answer count out of <%- total%> questions:</h1>\n            <div id=\"graph2\"></div>\n            <br>\n\n            <h1>Average answering times (s)</h1>\n            <div id=\"graph3\"></div>\n            <br>\n            <script>\n                Plotly.newPlot('graph1', <%-JSON.stringify(data)%>);\n                Plotly.newPlot('graph2', <%-JSON.stringify(count)%>);\n                Plotly.newPlot('graph3', <%-JSON.stringify(time)%>);\n            </script>\n            <div>\n                <%-JSON.stringify(results)%>\n            </div>\n        </section>\n      </body>\n</html>"
   , __filename = undefined;
 try {
   var __output = "";
   function __append(s) { if (s !== undefined && s !== null) __output += s }
   with (locals || {}) {
-    ; __append("<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\"/>\n        <meta name=\"author\" content=\"Hoormazd Pirayeshfar\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>\n        <title>My First Page</title>\n    </head>\n    <body onload=\"init();\">\n        <section class=\"container\">\n            ")
-    ; __line = 12
+    ; __append("<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\"/>\n        <meta name=\"author\" content=\"Hoormazd Pirayeshfar\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>\n        <title>My First Page</title>\n    </head>\n    <body onload=\"init();\">\n        <section class=\"container\">\n            <a href=\"/results/download\">Download</a>\n            ")
+    ; __line = 13
     ;  
             var camelScore = 0;
             var camelCount = 0;
@@ -477,24 +477,27 @@ try {
                 }
                 ];
             
-    ; __line = 76
-    ; __append("\n            <h1>Over all score from ")
     ; __line = 77
+    ; __append("\n            <h1>Over all score from ")
+    ; __line = 78
     ; __append(surveysanswered)
     ; __append(" surveys answered:</h1>\n            <div id=\"graph1\"></div>\n            <br>\n\n            <h1>Correct answer count out of ")
-    ; __line = 81
+    ; __line = 82
     ; __append( total)
     ; __append(" questions:</h1>\n            <div id=\"graph2\"></div>\n            <br>\n\n            <h1>Average answering times (s)</h1>\n            <div id=\"graph3\"></div>\n            <br>\n            <script>\n                Plotly.newPlot('graph1', ")
-    ; __line = 89
+    ; __line = 90
     ; __append(JSON.stringify(data))
     ; __append(");\n                Plotly.newPlot('graph2', ")
-    ; __line = 90
+    ; __line = 91
     ; __append(JSON.stringify(count))
     ; __append(");\n                Plotly.newPlot('graph3', ")
-    ; __line = 91
+    ; __line = 92
     ; __append(JSON.stringify(time))
-    ; __append(");\n            </script>\n        </section>\n      </body>\n</html>")
+    ; __append(");\n            </script>\n            <div>\n                ")
     ; __line = 95
+    ; __append(JSON.stringify(results))
+    ; __append("\n            </div>\n        </section>\n      </body>\n</html>")
+    ; __line = 99
   }
   return __output;
 } catch (e) {
@@ -900,14 +903,14 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\"/>\n        <meta name=\"author\" content=\"Hoormazd Pirayeshfar\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>\n        <title>My First Page</title>\n    </head>\n    <body onload=\"init();\">\n        <section class=\"container\">\n            <% \n            var camelScore = 0;\n            var camelCount = 0;\n            var camelTime = 0;\n\n            var kebab_score = 0;\n            var kebab_count = 0;\n            var kebab_time = 0;\n            \n            var total = 0;\n            var surveysanswered = 0;\n\n            results.forEach(result => {\n                surveysanswered++;\n                result.answers.forEach(answer => {\n                    if (answer.question == \"1\" || answer.question == \"2\" || answer.question == \"3\") {\n                        total += 1;\n                        var time = +answer.time;\n                        camelTime += time;\n                        var score = 1/time;\n                        if (answer.entered == answer.correct) {\n                            camelScore += score;\n                            camelCount += 1;\n                            \n                        }\n                        else {\n                            camelScore -= time/5;\n                        }\n                    }\n                    if (answer.question == \"4\" || answer.question == \"5\" || answer.question == \"6\") {\n                        var time = +answer.time;\n                        kebab_time += time;\n                        var score = 1/time;\n                        if (answer.entered == answer.correct) {\n                            kebab_score += score;\n                            kebab_count += 1;\n                        }\n                        else {\n                            kebab_score -= time/5;\n                        }\n                    }\n                });\n            }); \n            var data = [\n                {\n                    x: ['camelCase', 'kebab-case'],\n                    y: [camelScore, kebab_score],\n                    type: 'bar'\n                }\n                ];\n            var count = [\n                {\n                    x: ['camelCase', 'kebab-case'],\n                    y: [camelCount, kebab_count],\n                    type: 'bar'\n                }\n                ];\n            var time = [\n                {\n                    x: ['camelCase', 'kebab-case'],\n                    y: [camelTime/total, kebab_time/total],\n                    type: 'bar'\n                }\n                ];\n            %>\n            <h1>Over all score from <%-surveysanswered%> surveys answered:</h1>\n            <div id=\"graph1\"></div>\n            <br>\n\n            <h1>Correct answer count out of <%- total%> questions:</h1>\n            <div id=\"graph2\"></div>\n            <br>\n\n            <h1>Average answering times (s)</h1>\n            <div id=\"graph3\"></div>\n            <br>\n            <script>\n                Plotly.newPlot('graph1', <%-JSON.stringify(data)%>);\n                Plotly.newPlot('graph2', <%-JSON.stringify(count)%>);\n                Plotly.newPlot('graph3', <%-JSON.stringify(time)%>);\n            </script>\n        </section>\n      </body>\n</html>"
+  , __lines = "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\"/>\n        <meta name=\"author\" content=\"Hoormazd Pirayeshfar\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>\n        <title>My First Page</title>\n    </head>\n    <body onload=\"init();\">\n        <section class=\"container\">\n            <a href=\"/results/download\">Download</a>\n            <% \n            var camelScore = 0;\n            var camelCount = 0;\n            var camelTime = 0;\n\n            var kebab_score = 0;\n            var kebab_count = 0;\n            var kebab_time = 0;\n            \n            var total = 0;\n            var surveysanswered = 0;\n\n            results.forEach(result => {\n                surveysanswered++;\n                result.answers.forEach(answer => {\n                    if (answer.question == \"1\" || answer.question == \"2\" || answer.question == \"3\") {\n                        total += 1;\n                        var time = +answer.time;\n                        camelTime += time;\n                        var score = 1/time;\n                        if (answer.entered == answer.correct) {\n                            camelScore += score;\n                            camelCount += 1;\n                            \n                        }\n                        else {\n                            camelScore -= time/5;\n                        }\n                    }\n                    if (answer.question == \"4\" || answer.question == \"5\" || answer.question == \"6\") {\n                        var time = +answer.time;\n                        kebab_time += time;\n                        var score = 1/time;\n                        if (answer.entered == answer.correct) {\n                            kebab_score += score;\n                            kebab_count += 1;\n                        }\n                        else {\n                            kebab_score -= time/5;\n                        }\n                    }\n                });\n            }); \n            var data = [\n                {\n                    x: ['camelCase', 'kebab-case'],\n                    y: [camelScore, kebab_score],\n                    type: 'bar'\n                }\n                ];\n            var count = [\n                {\n                    x: ['camelCase', 'kebab-case'],\n                    y: [camelCount, kebab_count],\n                    type: 'bar'\n                }\n                ];\n            var time = [\n                {\n                    x: ['camelCase', 'kebab-case'],\n                    y: [camelTime/total, kebab_time/total],\n                    type: 'bar'\n                }\n                ];\n            %>\n            <h1>Over all score from <%-surveysanswered%> surveys answered:</h1>\n            <div id=\"graph1\"></div>\n            <br>\n\n            <h1>Correct answer count out of <%- total%> questions:</h1>\n            <div id=\"graph2\"></div>\n            <br>\n\n            <h1>Average answering times (s)</h1>\n            <div id=\"graph3\"></div>\n            <br>\n            <script>\n                Plotly.newPlot('graph1', <%-JSON.stringify(data)%>);\n                Plotly.newPlot('graph2', <%-JSON.stringify(count)%>);\n                Plotly.newPlot('graph3', <%-JSON.stringify(time)%>);\n            </script>\n            <div>\n                <%-JSON.stringify(results)%>\n            </div>\n        </section>\n      </body>\n</html>"
   , __filename = undefined;
 try {
   var __output = "";
   function __append(s) { if (s !== undefined && s !== null) __output += s }
   with (locals || {}) {
-    ; __append("<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\"/>\n        <meta name=\"author\" content=\"Hoormazd Pirayeshfar\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>\n        <title>My First Page</title>\n    </head>\n    <body onload=\"init();\">\n        <section class=\"container\">\n            ")
-    ; __line = 12
+    ; __append("<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\"/>\n        <meta name=\"author\" content=\"Hoormazd Pirayeshfar\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>\n        <title>My First Page</title>\n    </head>\n    <body onload=\"init();\">\n        <section class=\"container\">\n            <a href=\"/results/download\">Download</a>\n            ")
+    ; __line = 13
     ;  
             var camelScore = 0;
             var camelCount = 0;
@@ -973,24 +976,27 @@ try {
                 }
                 ];
             
-    ; __line = 76
-    ; __append("\n            <h1>Over all score from ")
     ; __line = 77
+    ; __append("\n            <h1>Over all score from ")
+    ; __line = 78
     ; __append(surveysanswered)
     ; __append(" surveys answered:</h1>\n            <div id=\"graph1\"></div>\n            <br>\n\n            <h1>Correct answer count out of ")
-    ; __line = 81
+    ; __line = 82
     ; __append( total)
     ; __append(" questions:</h1>\n            <div id=\"graph2\"></div>\n            <br>\n\n            <h1>Average answering times (s)</h1>\n            <div id=\"graph3\"></div>\n            <br>\n            <script>\n                Plotly.newPlot('graph1', ")
-    ; __line = 89
+    ; __line = 90
     ; __append(JSON.stringify(data))
     ; __append(");\n                Plotly.newPlot('graph2', ")
-    ; __line = 90
+    ; __line = 91
     ; __append(JSON.stringify(count))
     ; __append(");\n                Plotly.newPlot('graph3', ")
-    ; __line = 91
+    ; __line = 92
     ; __append(JSON.stringify(time))
-    ; __append(");\n            </script>\n        </section>\n      </body>\n</html>")
+    ; __append(");\n            </script>\n            <div>\n                ")
     ; __line = 95
+    ; __append(JSON.stringify(results))
+    ; __append("\n            </div>\n        </section>\n      </body>\n</html>")
+    ; __line = 99
   }
   return __output;
 } catch (e) {

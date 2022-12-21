@@ -5,10 +5,11 @@
         <meta name="author" content="Hoormazd Pirayeshfar">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
-        <title>My First Page</title>
+        <title>Results</title>
     </head>
     <body onload="init();">
         <section class="container">
+            <a href="/results/download">Download</a>
             <% 
             var camelScore = 0;
             var camelCount = 0;
@@ -90,6 +91,9 @@
                 Plotly.newPlot('graph2', <%-JSON.stringify(count)%>);
                 Plotly.newPlot('graph3', <%-JSON.stringify(time)%>);
             </script>
+            <div>
+                <%-JSON.stringify(results)%>
+            </div>
         </section>
       </body>
 </html>
