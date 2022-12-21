@@ -3,8 +3,8 @@ const router = express.Router();
 module.exports = router;
  
 
-
-const results = require('../model/results')
+const { parse } = require('json2csv');
+const results = require('../model/results');
 
 
 router.get("/index.html", (req, res) => {
@@ -36,6 +36,14 @@ router.get("/results", function(req, res) {
         },
         'application/json': function () {
           res.status(201).json(results.data);
+        }
+    });
+});
+
+router.get("/results/csv", function(req, res) {
+    res.format({
+        'application/json': function () {
+            res.status(201).json(parse(results.data));
         }
     });
 });

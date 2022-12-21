@@ -28,11 +28,11 @@ function init() {
         e.preventDefault();
         var username = document.querySelector('input#username').value;
         var age = document.querySelector('input#age').value;
-        var programmer = document.querySelector('input#programmer').value;
+        var programmer = document.querySelector('input#programmer').checked;
         result.name = username;
         result.age = age;
         result.programmer = programmer;
-        
+
         start_questions(username);
     });
 }
