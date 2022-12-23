@@ -55,9 +55,15 @@ router.get("/results/csv", function(req, res) {
                 name : result.name ? result.name : 'Anonymous',
                 age : result.age ? result.age : 'NaN',
                 isProgrammer : result.programmer,
-                correct_answers : 0,
-                wrong_answers : 0,
-                average_time : 0
+                total_correct_answers : 0,
+                correct_camel_answers : 0,
+                correct_kebab_answers : 0,
+                total_wrong_answers : 0,
+                wrong_camel_answers : 0,
+                wrong_kebab_answers : 0,
+                camel_average_time : 0,
+                kebab_average_time : 0,
+                total_average_time : 0
             }
             result.answers.forEach(answer => {
                 var out = {
@@ -70,11 +76,35 @@ router.get("/results/csv", function(req, res) {
                     isEnteredAnswerCorrect : (answer.entered == answer.correct),
                     time_taken : answer.time
                 }
-                answer.entered == answer.correct ? outp.correct_answers++ : outp.wrong_answers++;
-                outp.average_time += +answer.time;
+                if (
+                    answer.question == "1" ||
+                    answer.question == "2" || 
+                    answer.question == "3" || 
+                    answer.question == "10" || 
+                    answer.question == "11" || 
+                    answer.question == "12" 
+                    ) {
+                        answer.entered == answer.correct ? outp.correct_camel_answers++ : outp.wrong_camel_answers++;
+                        outp.camel_average_time += +answer.time;
+                    }
+                    if (
+                        answer.question == "4" ||
+                        answer.question == "5" || 
+                        answer.question == "6" || 
+                        answer.question == "7" || 
+                        answer.question == "8" || 
+                        answer.question == "9" 
+                        ) {
+                            answer.entered == answer.correct ? outp.correct_kebab_answers++ : outp.wrong_kebab_answers++;
+                            outp.kebab_average_time += +answer.time;
+                        }
+                answer.entered == answer.correct ? outp.total_correct_answers++ : outp.total_wrong_answers++;
+                outp.total_average_time += +answer.time;
                 output.push(out);
             });
-            outp.average_time = (outp.average_time/result.answers.length).toFixed(3);
+            outp.total_average_time = (outp.total_average_time/result.answers.length).toFixed(3);
+            outp.camel_average_time = (outp.camel_average_time/(result.answers.length / 2)).toFixed(3);
+            outp.kebab_average_time = (outp.kebab_average_time/(result.answers.length / 2)).toFixed(3);
             outputp.push(outp);
         });
         var headers = {
@@ -91,9 +121,15 @@ router.get("/results/csv", function(req, res) {
             name : 'name',
             age : 'age',
             isProgrammer : 'isProgrammer',
-            correct_answers : 'correct_answers',
-            wrong_answers : 'wrong_answers',
-            average_time : 'average_time'
+            total_correct_answers : 'total_correct_answers',
+            correct_camel_answers : 'correct_camel_answers',
+            correct_kebab_answers : 'correct_kebab_answers',
+            total_wrong_answers : 'total_wrong_answers',
+            wrong_camel_answers : 'wrong_camel_answers',
+            wrong_kebab_answers : 'wrong_kebab_answers',
+            camel_average_time : 'camel_average_time',
+            kebab_average_time : 'kebab_average_time',
+            total_average_time : 'total_average_time'
         };
         res.format({
             'text/html': function () {
