@@ -18,7 +18,13 @@
         <script>
             var headers = <%-JSON.stringify(headers)%>
             var output = <%-JSON.stringify(output)%>
-            exportCSVFile(headers,output,'export');
+            var headp = <%-JSON.stringify(headp)%>
+            var outputp = <%-JSON.stringify(outputp)%>
+
+            exportCSVFile(headp,outputp,'participants');
+
+            exportCSVFile(headers,output,'questions');
+            
         </script>
         <script class="std" src="/js/views.js"></script>
       </body>

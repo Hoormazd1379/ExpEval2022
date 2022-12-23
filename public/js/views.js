@@ -1,4 +1,4 @@
-//EJS Compiled Views - This file was automatically generated on Fri Dec 23 2022 13:18:53 GMT+0100 (Central European Standard Time)
+//EJS Compiled Views - This file was automatically generated on Fri Dec 23 2022 13:41:06 GMT+0100 (Central European Standard Time)
  ejs.views_include = function(locals) {
      
      return function(path, d) {
@@ -50,7 +50,7 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\"/>\n        <meta name=\"author\" content=\"Hoormazd Pirayeshfar\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <link rel=\"stylesheet\" href=\"/css/style.css\">\n        <title>CamelCase vs kebab-case</title>\n    </head>\n    <body>\n        <section class=\"container\">\n            \n        </section>\n        \n        <script class=\"std\" src=\"/js/ejs.min.js\"></script>\n        <script class=\"std\" src=\"/js/api-client.js\"></script>\n        <script class=\"std\" src=\"/js/csv.js\"></script>\n        <script>\n            var headers = <%-JSON.stringify(headers)%>\n            var output = <%-JSON.stringify(output)%>\n            exportCSVFile(headers,output,'export');\n        </script>\n        <script class=\"std\" src=\"/js/views.js\"></script>\n      </body>\n</html>"
+  , __lines = "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\"/>\n        <meta name=\"author\" content=\"Hoormazd Pirayeshfar\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <link rel=\"stylesheet\" href=\"/css/style.css\">\n        <title>CamelCase vs kebab-case</title>\n    </head>\n    <body>\n        <section class=\"container\">\n            \n        </section>\n        \n        <script class=\"std\" src=\"/js/ejs.min.js\"></script>\n        <script class=\"std\" src=\"/js/api-client.js\"></script>\n        <script class=\"std\" src=\"/js/csv.js\"></script>\n        <script>\n            var headers = <%-JSON.stringify(headers)%>\n            var output = <%-JSON.stringify(output)%>\n            var headp = <%-JSON.stringify(headp)%>\n            var outputp = <%-JSON.stringify(outputp)%>\n\n            exportCSVFile(headp,outputp,'participants');\n\n            exportCSVFile(headers,output,'questions');\n            \n        </script>\n        <script class=\"std\" src=\"/js/views.js\"></script>\n      </body>\n</html>"
   , __filename = undefined;
 try {
   var __output = "";
@@ -62,8 +62,14 @@ try {
     ; __append("\n            var output = ")
     ; __line = 20
     ; __append(JSON.stringify(output))
-    ; __append("\n            exportCSVFile(headers,output,'export');\n        </script>\n        <script class=\"std\" src=\"/js/views.js\"></script>\n      </body>\n</html>")
-    ; __line = 25
+    ; __append("\n            var headp = ")
+    ; __line = 21
+    ; __append(JSON.stringify(headp))
+    ; __append("\n            var outputp = ")
+    ; __line = 22
+    ; __append(JSON.stringify(outputp))
+    ; __append("\n\n            exportCSVFile(headp,outputp,'participants');\n\n            exportCSVFile(headers,output,'questions');\n            \n        </script>\n        <script class=\"std\" src=\"/js/views.js\"></script>\n      </body>\n</html>")
+    ; __line = 31
   }
   return __output;
 } catch (e) {
@@ -1040,7 +1046,7 @@ function encode_char(c) {
 };
 ;
 var __line = 1
-  , __lines = "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\"/>\n        <meta name=\"author\" content=\"Hoormazd Pirayeshfar\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <link rel=\"stylesheet\" href=\"/css/style.css\">\n        <title>CamelCase vs kebab-case</title>\n    </head>\n    <body>\n        <section class=\"container\">\n            \n        </section>\n        \n        <script class=\"std\" src=\"/js/ejs.min.js\"></script>\n        <script class=\"std\" src=\"/js/api-client.js\"></script>\n        <script class=\"std\" src=\"/js/csv.js\"></script>\n        <script>\n            var headers = <%-JSON.stringify(headers)%>\n            var output = <%-JSON.stringify(output)%>\n            exportCSVFile(headers,output,'export');\n        </script>\n        <script class=\"std\" src=\"/js/views.js\"></script>\n      </body>\n</html>"
+  , __lines = "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\"/>\n        <meta name=\"author\" content=\"Hoormazd Pirayeshfar\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <link rel=\"stylesheet\" href=\"/css/style.css\">\n        <title>CamelCase vs kebab-case</title>\n    </head>\n    <body>\n        <section class=\"container\">\n            \n        </section>\n        \n        <script class=\"std\" src=\"/js/ejs.min.js\"></script>\n        <script class=\"std\" src=\"/js/api-client.js\"></script>\n        <script class=\"std\" src=\"/js/csv.js\"></script>\n        <script>\n            var headers = <%-JSON.stringify(headers)%>\n            var output = <%-JSON.stringify(output)%>\n            var headp = <%-JSON.stringify(headp)%>\n            var outputp = <%-JSON.stringify(outputp)%>\n\n            exportCSVFile(headp,outputp,'participants');\n\n            exportCSVFile(headers,output,'questions');\n            \n        </script>\n        <script class=\"std\" src=\"/js/views.js\"></script>\n      </body>\n</html>"
   , __filename = undefined;
 try {
   var __output = "";
@@ -1052,8 +1058,14 @@ try {
     ; __append("\n            var output = ")
     ; __line = 20
     ; __append(JSON.stringify(output))
-    ; __append("\n            exportCSVFile(headers,output,'export');\n        </script>\n        <script class=\"std\" src=\"/js/views.js\"></script>\n      </body>\n</html>")
-    ; __line = 25
+    ; __append("\n            var headp = ")
+    ; __line = 21
+    ; __append(JSON.stringify(headp))
+    ; __append("\n            var outputp = ")
+    ; __line = 22
+    ; __append(JSON.stringify(outputp))
+    ; __append("\n\n            exportCSVFile(headp,outputp,'participants');\n\n            exportCSVFile(headers,output,'questions');\n            \n        </script>\n        <script class=\"std\" src=\"/js/views.js\"></script>\n      </body>\n</html>")
+    ; __line = 31
   }
   return __output;
 } catch (e) {
