@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Hoormazd Pirayeshfar">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/style.css">
+        <title>CamelCase vs kebab-case</title>
+    </head>
+    <body>
+        <section class="container">
+            
+        </section>
+        
+        <script class="std" src="/js/ejs.min.js"></script>
+        <script class="std" src="/js/api-client.js"></script>
+        <script class="std" src="/js/csv.js"></script>
+        <script>
+            var headers = <%-JSON.stringify(headers)%>
+            var output = <%-JSON.stringify(output)%>
+            exportCSVFile(headers,output,'export');
+        </script>
+        <script class="std" src="/js/views.js"></script>
+      </body>
+</html>

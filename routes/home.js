@@ -47,10 +47,39 @@ router.get("/results", function(req, res) {
 });
 
 router.get("/results/csv", function(req, res) {
+    var output = [];
     model.results.find({}).toArray().then(results => {
+        results.forEach(result => {
+            result.answers.forEach(answer => {
+                var out = {
+                    name : result.name ? result.name : 'Anonymous',
+                    age : result.age ? result.age : 'NaN',
+                    isProgrammer : result.programmer,
+                    question_number : answer.question,
+                    entered_answer : answer.entered,
+                    correct_answer : answer.correct,
+                    isEnteredAnswerCorrect : (answer.entered == answer.correct),
+                    time_taken : answer.time
+                }
+                output.push(out);
+            });
+        });
+        var headers = {
+            name : 'name',
+            age : 'age',
+            isProgrammer : 'isProgrammer',
+            question_number : 'question_number',
+            entered_answer : 'entered_answer',
+            correct_answer : 'correct_answer',
+            isEnteredAnswerCorrect : 'isEnteredAnswerCorrect',
+            time_taken : 'time_taken'
+        };
         res.format({
+            'text/html': function () {
+                res.render("csv",{headers,output});
+            },
             'application/json': function () {
-                res.status(201).json(parse({results}));
+              res.status(201).json({headers,output});
             }
         });
     });
