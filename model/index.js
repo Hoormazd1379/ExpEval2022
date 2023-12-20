@@ -13,7 +13,7 @@ const client = new mongodb.MongoClient(mongodb_uri);
 const db_name = 'exp-eval';
 
 
-const collection_names = ['results'];
+const collection_names = ['results2023'];
 
 
 const model = {};
