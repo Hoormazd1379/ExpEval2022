@@ -1,51 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap');
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     font-size: 20px;
-    font-family: 'Courier New', monospace;
+}
+.desc {
+    font-family: 'Nunito Sans', sans-serif;
 }
 
-body,section.container {
-    color: rgb(255, 255, 255);
-    background: rgb(17,17,17);
-    background: linear-gradient(132deg, rgba(17,17,17,1) 0%, rgba(53,55,60,1) 100%);
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
+body {
+    background-image: linear-gradient(132deg, rgba(139, 144, 158, 0.57)  0%,  #E9E6FF 100%);
+    max-width: 100%;
+
+}
+
+body h1, h2 {
+    font-family: 'Nunito Sans', monospace;
+    color: rgb(69, 10, 92);
+}
+
+body, section.container {
+    width: 95%;
+    color: white;
+    min-height: 100vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    margin-top: 4px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    overflow-x: hidden;
 }
 
 div.question {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-    margin: 2rem;
-    padding: 2rem;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border: 3px solid black;
+    background-color: rgba(77, 36, 116, 0.418);
+    /* border-radius: 20px; */
+    padding: 30px;
+    /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+    margin-bottom: 3%;
+    flex-shrink: 0;
+    max-width: 50vw;
 }
 
 div.question form {
-    margin: 2rem;
-    padding: 2rem;
+    padding: 30px;
+    font-family: 'Courier New', monospace;
 }
 
 div.question form input,button {
-    background-color: rgba(53,55,60,1);
-    color: aliceblue;
-    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    border: 3px solid black;
     padding: 5px;
     margin: 5px;
     width: 100%;
     padding: 10px;
-    height: 40px;
-
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    height: 55px;
 }
 
-h3#timer {
-    color: yellow;
+#programmer-input {
+    display: grid;
+    grid-template-columns: 10vw 5vw;
+    gap: 6vw;
+}
+#programmer-input input {
+    border-radius: 15px;
+    border: 3px solid black;
+    
+}
+
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 2px solid #000; 
+    border-radius: 2px; 
+    outline: none;
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+}
+
+
+input[type="checkbox"]:checked {
+    background-color: #000; /* Background color when checked */
+}
+
+
+input[type="checkbox"]::before {
+    content: '\2713'; /* Unicode character for a checkmark */
+    display: inline-block;
+    color: rgba(208, 172, 242, 0.958);
+    font-size: 44px; 
+    line-height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+
+input[type="checkbox"]:checked::before {
+    visibility: visible;
 }

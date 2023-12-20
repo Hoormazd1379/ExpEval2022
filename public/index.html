@@ -2,38 +2,49 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8"/>
-        <meta name="author" content="Hoormazd Pirayeshfar">
+        <meta name="author" content="Delara Lomen, Hoormazd Pirayeshfar">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./css/style.css">
-        <title>CamelCase vs kebab-case</title>
+        <title>camelCase vs kebab-case</title>
     </head>
     <body onload="init();">
+        <h1 class="desc">camelCase vs kebab-case Experiment</h1>
         <section class="container">
-            <h1>CamelCase vs kebab-case</h1>
-            <div class="question">
-                   <p>Once you start, a short text will appear on your screen. You then have to find that text within the given options as fast as you can.</p>
-                   <br>
-                   <p>The first question, will be a test question and the result wont be saved.</p>
+            <div class="desc question">
+                <p><strong>Hello and thank you for participating in our experiment!</strong></p>
+                <br>
+                <p><strong>Goal of the Experiment:</strong></p>
+                <p>The goal of this experiment is to understand how different identifier styles (camelCase and kebab-case) affect readability and recognition in code.</p>
+                <br>
+                <p><strong>What You Are Supposed to Do:</strong></p>
+                <p>You will be presented with short sentences and a set of identifiers written in either camelCase or kebab-case. Your task is to select the identifier that corresponds to the given sentence. We will track the time it takes for you to make each selection and whether it was correct or incorrect.</p>
+                <p>Please read the instructions carefully and follow the prompts as you proceed through the experiment tasks.</p>
+                <br>
+                <p>Thank you for your participation!</p>
+                <br>
+                <p><em>Note: The collected data will be used for research purposes only.</em></p>
             </div>
             <div class="question">
                 <form>
-                    <label>Enter your name (optional)</label>
+                    <label>Your Name (optional):</label>
                     <br>
                     <br>
                     <input id="username" type="text" placeholder="name" value="">
                     <br>
                     <br>
-                    <label>Enter your age</label>
+                    <label>Your Age:</label>
                     <br>
                     <br>
                     <input id="age" type="number" placeholder="age" value="" required>
                     <br>
                     <br>
-                    <label>Are you a programmer?</label>
-                    <input id="programmer" type="checkbox" placeholder="name" value="">
+                    <div id="programmer-input" class="checkbox-container">
+                        <label>Are You a Programmer?</label>
+                        <input id="programmer" type="checkbox" placeholder="name" value="">
+                    </div>
                     <br>
                     <br>
-                    <button id="username" style="color: greenyellow;" type="submit"> START </button>
+                    <button id="username" style="color: black;" type="submit"> start! </button>
                 </form>
             </div>
         </section>
