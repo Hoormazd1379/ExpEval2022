@@ -1,19 +1,3 @@
-/**
- * Web Atelier 2022  Exercise 7 - Single-Page Web Applications with Fetch and Client-side Views
- *
- * Student: __STUDENT NAME__
- *
- * Main Server Application
- *
- * version 1289 Wed Nov 02 2022 17:01:56 GMT+0100 (Central European Standard Time)
- *
- */
-
-
-
-
-
-
 //require framework and middleware dependencies
 const express = require('express');
 const path = require('path');
