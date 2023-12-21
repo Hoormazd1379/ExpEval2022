@@ -21,7 +21,7 @@ router.post("/save", function(req, res) {
     let data = req.body;
     results.data.push(data);
     results.save();
-    model.results.insertOne(data).then(ans => {
+    model.results2023.insertOne(data).then(ans => {
         res.format({
             'text/html': function () {
               res.redirect("/index.html");
@@ -34,7 +34,7 @@ router.post("/save", function(req, res) {
 });
 
 router.get("/results", function(req, res) {
-    model.results.find({}).toArray().then(results => {
+    model.results2023.find({}).toArray().then(results => {
         res.format({
             'text/html': function () {
                 res.render("results",{results});
@@ -49,7 +49,7 @@ router.get("/results", function(req, res) {
 router.get("/results/csv", function(req, res) {
     var output = [];
     var outputp = [];
-    model.results.find({}).toArray().then(results => {
+    model.results2023.find({}).toArray().then(results => {
         results.forEach(result => {
             var outp = {
                 name : result.name ? result.name : 'Anonymous',
@@ -143,7 +143,7 @@ router.get("/results/csv", function(req, res) {
 });
 
 router.get("/results/download", function(req, res) {
-    model.results.find({}).toArray().then(results => {
+    model.results2023.find({}).toArray().then(results => {
         res.format({
             'application/json': function () {
                 res.status(201).json({results});
